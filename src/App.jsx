@@ -271,27 +271,27 @@ function App() {
                 </div>
 
                 {/* Map Container */}
-                <div className="w-2/3 h-full">
+                <div className="w-2/3 h-full relative">
                     <div
                         ref={mapContainer}
                         className="w-full h-full rounded-lg"
                         style={{
                             minHeight: '500px',
                             height: '100%',
-                            width: '100%'
+                            width: '100%',
+                            position: 'relative',
                         }}
                     />
+                    {/* Floating Button inside the map */}
+                    <button
+                        onClick={handleListButtonClick}
+                        className="absolute top-4 left-4 bg-blue-300 hover:bg-blue-400 text-white rounded-full p-3 shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none"
+                        style={{zIndex: 1000}}
+                    >
+                        Download PDF
+                    </button>
                 </div>
             </div>
-
-            {/* Floating Button */}
-            <button
-                onClick={handleListButtonClick}
-                className="fixed top-8 right-8 bg-blue-200 hover:bg-blue-300 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none"
-                style={{ zIndex: 1000 }}
-            >
-                Export List
-            </button>
         </div>
     );
 }
